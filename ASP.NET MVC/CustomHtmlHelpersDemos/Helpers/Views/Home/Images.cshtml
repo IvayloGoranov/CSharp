@@ -1,0 +1,15 @@
+﻿@using Helpers.Helpers
+
+@{
+    ViewBag.Title = "Images";
+}
+
+<h2>Images</h2>
+
+@Html.Image(imageUrl: "http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg", alt: "Sample Image")
+@Html.Image("https://newbloggycat.files.wordpress.com/2015/07/funny-karate-cat.jpg", "Sample Image")
+@Html.Image("http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg")
+@Html.Image("/images/cat.jpg")
+@Html.Image("https://www.petfinder.com/wp-content/uploads/2012/11/91615172-find-a-lump-on-cats-skin-632x475.jpg", width: "30", height: "30")
+@Html.Image("https://i.ytimg.com/vi/DXUAyRRkI6k/maxresdefault.jpg", width: "30")
+

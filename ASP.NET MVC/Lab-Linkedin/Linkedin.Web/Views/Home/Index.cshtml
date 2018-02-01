@@ -1,0 +1,24 @@
+﻿@model IEnumerable<VGGLinkedIn.Web.ViewModels.CertificationViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>VGGLinkedIn</h1>
+    <p class="lead">ASP.NET MVC Web Application</p>
+</div>
+
+<div style="background-color: #008080">
+    @Html.Image("https://softuni.bg/Content/design/logo.png", "SoftUni logo")
+</div>
+
+<div style="background-color: #008080">
+    @Html.TextBoxTag("Pesho")
+</div>
+
+
+@foreach (var cert in Model)
+{
+    <div>@cert.Name</div>
+}

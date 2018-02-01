@@ -1,0 +1,25 @@
+﻿@model VGGLinkedIn.Web.ViewModels.UserViewModel
+
+<h1>@Html.DisplayFor(x => x.UserName)</h1>
+
+<img src="@Model.AvatarUrl" alt="@Model.UserName avatar" width="200" />
+<br />
+@Html.DisplayNameFor(x => x.Email): @Html.DisplayFor(x => x.Email)
+<br/>
+@Html.DisplayNameFor(x => x.FullName): @Html.DisplayFor(x => x.FullName)
+<br />
+@Html.DisplayNameFor(x => x.ContactInfo.Facebook): @Html.DisplayFor(x => x.ContactInfo.Facebook)
+<br />
+@Html.DisplayNameFor(x => x.ContactInfo.Twitter): <a href="https://twitter.com/@Model.ContactInfo.Twitter">@Model.ContactInfo.Twitter</a>
+<br />
+@Html.DisplayNameFor(x => x.ContactInfo.Website): @Html.DisplayFor(x => x.ContactInfo.Website)
+<br />
+@Html.DisplayNameFor(x => x.ContactInfo.Phone): @Html.DisplayFor(x => x.ContactInfo.Phone)
+
+@Html.DisplayFor(x => x.Certifications)
+
+@Html.DisplayFor(x => x.Skills)
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

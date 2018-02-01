@@ -1,0 +1,10 @@
+﻿@model IList<VGGLinkedIn.Web.ViewModels.GroupViewModel>
+           
+@foreach (var group in this.ViewBag.Groups)
+{
+    <div>@group.Id</div>
+    <div>@group.OwnerId</div>
+    <div>@group.Title</div>
+    <div>@group.Type</div>
+    <div>@group.Website</div>
+}

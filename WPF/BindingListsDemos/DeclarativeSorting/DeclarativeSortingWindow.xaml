@@ -1,0 +1,40 @@
+﻿<Window x:Class="DeclarativeSorting.DeclarativeSortingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Declarative Sorting and Grouping" Height="300" Width="300"
+        xmlns:local="clr-namespace:DeclarativeSorting"
+        xmlns:compModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:data="clr-namespace:System.Windows.Data;assembly=PresentationFramework"
+        xmlns:DeclarativeSorting="clr-namespace:DeclarativeSorting">
+  
+  <Window.Resources>
+    <local:People x:Key="Family">
+      <local:Person Name="Cvetan" Age="11" />
+      <local:Person Name="Trendafil" Age="12" />
+      <local:Person Name="Margaritka" Age="38" />
+      <local:Person Name="Violetka" Age="38" />
+    </local:People>
+    <local:AgeToRangeConverter x:Key="ageConverter" />
+    <CollectionViewSource x:Key="SortedGroupedFamily"
+                          Source="{StaticResource Family}">
+      <CollectionViewSource.SortDescriptions>
+        <compModel:SortDescription PropertyName="Name" Direction="Ascending" />
+        <compModel:SortDescription PropertyName="Age" Direction="Descending" />
+      </CollectionViewSource.SortDescriptions>
+      <CollectionViewSource.GroupDescriptions>
+        <data:PropertyGroupDescription PropertyName="Age"
+                                       Converter="{StaticResource ageConverter}" />
+        <data:PropertyGroupDescription PropertyName="Age" />
+      </CollectionViewSource.GroupDescriptions>
+    </CollectionViewSource>
+  </Window.Resources>
+  
+  <Grid>
+    <ListBox ItemsSource="{Binding Source={StaticResource SortedGroupedFamily}}"
+             DisplayMemberPath="Name">
+      <ListBox.GroupStyle>
+        <x:Static Member="GroupStyle.Default" />
+      </ListBox.GroupStyle>
+    </ListBox>
+  </Grid>
+</Window>

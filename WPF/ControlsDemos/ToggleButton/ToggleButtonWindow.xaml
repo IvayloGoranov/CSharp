@@ -1,0 +1,8 @@
+﻿<Window x:Class="ToggleButton.ToggleButtonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ToggleButton Demo" Height="140" Width="200">
+  <ToggleButton  Name="myToggleButton" Width="85" Height="30" Click="ToggleButton_Click">
+    _Click me 
+  </ToggleButton>
+</Window>

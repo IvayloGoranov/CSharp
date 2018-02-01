@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "List of files in '/Images' folder";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul>
+    @foreach (var file in ViewBag.Files)
+    {
+        <li>@file</li>
+    }
+</ul>
+
+<h3>Last changed: @ViewBag.FilesLastChanged</h3>

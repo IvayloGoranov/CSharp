@@ -1,0 +1,64 @@
+﻿<Window x:Class="UsingLookUpBindings.LookUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Using Look-up Bindings" Height="386" Width="396" 
+        xmlns:local="clr-namespace:UsingLookUpBindings">
+    <Window.Resources>
+        <local:People x:Key="Family">
+            <local:Person Name="Gogo" Age="11"/>
+            <local:Person Name="Lily" Age="12"/>
+            <local:Person Name="Bay Ganyo" Age="48"/>
+        </local:People>
+        <local:NamedAges x:Key="NamedAgeLookup">
+            <local:NamedAge NameForAge="Zero" AgeId="0" />
+            <local:NamedAge NameForAge="One" AgeId="1" />
+            <local:NamedAge NameForAge="Two" AgeId="2" />
+            <local:NamedAge NameForAge="Three" AgeId="3" />
+            <local:NamedAge NameForAge="Four" AgeId="4" />
+            <local:NamedAge NameForAge="Five" AgeId="5" />
+            <local:NamedAge NameForAge="Six" AgeId="6" />
+            <local:NamedAge NameForAge="Seven" AgeId="7" />
+            <local:NamedAge NameForAge="Eight" AgeId="8" />
+            <local:NamedAge NameForAge="Nine" AgeId="9" />
+            <local:NamedAge NameForAge="Ten" AgeId="10" />
+            <local:NamedAge NameForAge="Eleven" AgeId="11" />
+            <local:NamedAge NameForAge="Twelve" AgeId="12" />
+            <local:NamedAge NameForAge="Thirteen" AgeId="13" />
+        </local:NamedAges>
+        <local:AgeToForegroundConverter x:Key="AgeConverter" />
+    </Window.Resources>
+    <Grid Name="grid" Height="351" Width="364" DataContext="{StaticResource Family}">
+        <TextBlock Height="22" HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Width="44" Margin="0,95,0,0">Name:</TextBlock>
+        <TextBox Text="{Binding Path=Name}" Margin="44,92,15,0" Height="25" VerticalAlignment="Top" />
+
+        <TextBlock Margin="0,138,0,0" HorizontalAlignment="Left" Width="38" Height="22" 
+               VerticalAlignment="Top">Age:</TextBlock>
+        <TextBox Name="AgeTextBox" Text="{Binding Path=Age}"
+            VerticalAlignment="Top" Margin="44,135,15,0" Height="25"
+            Foreground="{Binding Path=Age, Converter={StaticResource AgeConverter}}" />
+
+        <Button
+      FontSize="20" Foreground="{Binding Path=Foreground, ElementName=ageTextBox}" Click="BirthdayButton_Click"
+      Name="BirthdayButton" Margin="44,0,15,90" Height="41" VerticalAlignment="Bottom">Birthday</Button>
+
+        <Button FontSize="20" Click="ButtonBack_Click" Height="35" Margin="44,0,0,26" Name="ButtonBack" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="96">
+            &lt;
+        </Button>
+
+        <Button FontSize="20" Click="ButtonForward_Click" Height="35" HorizontalAlignment="Right" 
+            Margin="0,0,15,26" Name="ButtonForward" VerticalAlignment="Bottom" Width="102">
+            &gt;
+        </Button>
+
+        <ListBox MouseDoubleClick="ListBoxPeople_MouseDoubleClick" Height="59" Margin="44,14,15,0" Name="ListBoxPeople" 
+             VerticalAlignment="Top" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="Age"
+             IsSynchronizedWithCurrentItem="True"/>
+
+        <ComboBox Name="ComboBoxNumbers" 
+            ItemsSource="{Binding Source={StaticResource NamedAgeLookup}}"
+            DisplayMemberPath="NameForAge" SelectedValuePath="AgeId"
+            SelectedValue="{Binding Path=Age}"
+            Margin="44,175.138,15,152.862"  />
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CarDealer.Models.ViewModels.Parts.AllPartVm>
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+@Html.ActionLink("Add Part", "Add" , null, new { @class = "btn btn-primary" })
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Supplier</th>
+        <th>Modify</th>
+    </tr>
+    @foreach (var part in Model)
+    {
+        <tr>
+            <td>@part.Name</td>
+            <td>@part.Price</td>
+            <td>@part.Quantity</td>
+            <td>@part.SupplierName</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = part.Id}, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = part.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,20 @@
+﻿<Window x:Class="CustomCommandsUsage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+  <Grid>
+    <StackPanel>
+      <Menu>
+                <MenuItem Command="Copy"
+                    CommandTarget="{Binding textBoxText}" />
+                <MenuItem Command="Paste"
+                  CommandTarget="{Binding ElementName=mainTextBox}" />
+
+      </Menu>
+      <TextBox Name="mainTextBox"/>
+      <TextBox Name="textBoxText">
+        adsksaldlsajdklja tralaal
+      </TextBox>
+    </StackPanel>
+  </Grid>
+</Window>

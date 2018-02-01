@@ -1,0 +1,10 @@
+﻿@model DateTime?
+    
+@if (Model == null)
+{
+    @:First log in
+}
+else
+{
+  @:Last login: @Model
+}

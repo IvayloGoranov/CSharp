@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineShop.RegistrationPage">
+  
+  <StackLayout>
+    <StackLayout Orientation="Horizontal" Padding="10">
+      <Label Text="Username:"/>
+      <Entry Placeholder="Username" TextChanged="OnUsernameTextChanged" HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Padding="10">
+      <Label Text="Password:"/>
+      <Entry Placeholder="Password" IsPassword="True" Unfocused="OnPasswordUnfocused"
+             HorizontalOptions="FillAndExpand"/>
+    </StackLayout>  
+
+    <Label x:Name="labelUsername"/>
+    <Label x:Name="labelPassword"/>
+    
+    <Button x:name="loginButton" Text="Login" Font="Large" BorderWidth="1" HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center" Clicked="OnButtonClicked"/>
+    
+  </StackLayout>
+  
+  
+</ContentPage>

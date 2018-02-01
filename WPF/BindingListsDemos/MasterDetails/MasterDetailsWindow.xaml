@@ -1,0 +1,126 @@
+﻿<Window x:Class="MasterDetails.MasterDetailsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MasterDetails"
+    Title="Master Details" Height="400" Width="500">
+    
+    <Window.Resources>
+        <local:Families x:Key="Families">
+            <local:Family FamilyName="Piyandetata">
+                <local:Family.Members>
+                    <local:People>
+                        <local:Person Name="Joro Vodkata" Age="21">
+                            <local:Person.Traits>
+                                <local:Traits>
+                                    <local:Trait Description="In Charge" />
+                                    <local:Trait Description="Mean" />
+                                    <local:Trait Description="Ugly" />
+                                </local:Traits>
+                            </local:Person.Traits>
+                        </local:Person>
+                        <local:Person Name="Stefan Mentata" Age="22" >
+                            <local:Person.Traits>
+                                <local:Traits>
+                                    <local:Trait Description="Nice" />
+                                    <local:Trait Description="Ugly" />
+                                </local:Traits>
+                            </local:Person.Traits>
+                        </local:Person>
+                        <local:Person Name="Pesho Birata" Age="23" >
+                            <local:Person.Traits>
+                                <local:Traits>
+                                    <local:Trait Description="Stupid" />
+                                    <local:Trait Description="Ugly" />
+                                </local:Traits>
+                            </local:Person.Traits>
+                        </local:Person>
+                    </local:People>
+                </local:Family.Members>
+            </local:Family>
+            <local:Family FamilyName="Addams">
+                <local:Family.Members>
+                    <local:People>
+                        <local:Person Name="Gomez" Age="135" >
+                            <local:Person.Traits>
+                                <local:Traits>
+                                    <local:Trait Description="Rich" />
+                                    <local:Trait Description="Creepy" />
+                                    <local:Trait Description="Speaks French" />
+                                </local:Traits>
+                            </local:Person.Traits>
+                        </local:Person>
+                        <local:Person Name="Morticia" Age="121" >
+                            <local:Person.Traits>
+                                <local:Traits>
+                                    <local:Trait Description="Rich" />
+                                    <local:Trait Description="Pale" />
+                                    <local:Trait Description="Likes French" />
+                                </local:Traits>
+                            </local:Person.Traits>
+                        </local:Person>
+                        <local:Person Name="Fester" Age="137" >
+                            <local:Person.Traits>
+                                <local:Traits>
+                                    <local:Trait Description="Rich" />
+                                    <local:Trait Description="Stupid" />
+                                    <local:Trait Description="Ugly" />
+                                </local:Traits>
+                            </local:Person.Traits>
+                        </local:Person>
+                    </local:People>
+                </local:Family.Members>
+            </local:Family>
+        </local:Families>
+    </Window.Resources>
+    
+    <Grid DataContext="{StaticResource Families}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- Families Column -->
+        <TextBlock Grid.Row="0" Grid.Column="0">Families:</TextBlock>
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=FamilyName}" />
+        </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Members Column -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+            <TextBlock Text="{Binding Path=FamilyName}" />
+      <TextBlock Text=" Family Members:" />
+    </StackPanel>
+        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=Members}" IsSynchronizedWithCurrentItem="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+            <TextBlock Text="{Binding Path=Name}" />
+            (age: <TextBlock Text="{Binding Path=Age}" />)
+          </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Traits Column -->
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+            <TextBlock Text="{Binding Path=Members/Name}" />
+      <TextBlock Text=" Traits:" />
+    </StackPanel>
+        <ListBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=Members/Traits}" IsSynchronizedWithCurrentItem="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Description}" />
+        </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

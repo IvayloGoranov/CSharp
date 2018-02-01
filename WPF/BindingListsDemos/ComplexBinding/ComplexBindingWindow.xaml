@@ -1,0 +1,31 @@
+﻿<Window x:Class="ComplexBinding.ComplexBindingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Complex Binding" Height="182" Width="196"
+        xmlns:local="clr-namespace:ComplexBinding">
+
+    <Window.Resources>
+        <local:People x:Key="Family">
+            <local:Person Name="Petkan" Age="11" />
+            <local:Person Name="Ivan" Age="12"/>
+            <local:Person Name="Baba Meca" Age="38" />
+        </local:People>
+        <local:AgeToForegroundConverter x:Key="ageConverter" />
+    </Window.Resources>
+    
+    <Grid Name="grid" Height="133" Width="176" DataContext="{StaticResource Family}">
+        <TextBlock Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Width="44" Margin="0,10,0,0">Name:</TextBlock>
+        <TextBox Text="{Binding Path=Name}" Margin="44,10,15,0" Height="25"
+             VerticalAlignment="Top" />
+        <TextBlock Margin="0,45,0,0" Height="25" VerticalAlignment="Top" 
+               HorizontalAlignment="Left" Width="44">Age:</TextBlock>
+        <TextBox Name="ageTextBox" Text="{Binding Path=Age}" 
+             Foreground="{Binding Path=Age, Converter={StaticResource ageConverter}}"  
+             Margin="44,45,15,0" Height="25" VerticalAlignment="Top" />
+        <Button Foreground="{Binding Path=Foreground, ElementName=ageTextBox}"
+            Name="birthdayButton" Margin="27,0,32,12" Height="41" 
+            VerticalAlignment="Bottom" Click="birthdayButton_Click">Birthday</Button>
+    </Grid>
+    
+</Window>

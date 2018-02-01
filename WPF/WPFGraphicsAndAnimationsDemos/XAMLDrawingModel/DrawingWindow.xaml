@@ -1,0 +1,12 @@
+﻿<Window x:Class="XAMLDrawingModel.DrawingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Change Rectangle Width" Height="300" Width="300">
+  <Canvas x:Name="CanvasMain" MouseLeftButtonDown="CanvasMain_MouseLeftButtonDown">
+    <Rectangle x:Name="FirstRectangle" Canvas.Left="10" Canvas.Top="30" Fill="Indigo" Width="50" Height="30" />
+    <Rectangle Canvas.Left="20" Canvas.Top="40" Fill="Yellow" Width="50" Height="30" />
+    <Rectangle Canvas.Left="30" Canvas.Top="50" Fill="Orange" Width="50" Height="30" />
+    <Rectangle Canvas.Left="40" Canvas.Top="60" Fill="LightGreen" Width="50" Height="30" />
+    <Rectangle Canvas.Left="50" Canvas.Top="70" Fill="Blue" Width="50" Height="30" />
+  </Canvas>
+</Window>

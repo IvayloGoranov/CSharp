@@ -1,0 +1,33 @@
+﻿@model Twitter.Web.InputModels.PostInputModel
+
+@using (Html.BeginForm("Tweet", "Posts"))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Post new tweet:</legend>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Title, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Content, 10, 55, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostURL, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.PostURL, new { @class = "form-control" })
+            </div>
+        </div>
+    </fieldset>
+
+    @Html.HiddenFor(m => m.QuestionID)
+
+    <input type="submit" name="name" value="Tweet" class="btn btn-primary" />
+}

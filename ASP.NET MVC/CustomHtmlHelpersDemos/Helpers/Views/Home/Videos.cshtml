@@ -1,0 +1,13 @@
+﻿@using Helpers.Helpers
+
+@{
+    ViewBag.Title = "Videos";
+}
+
+<h2>Videos</h2>
+
+@Html.YouTube(videoId: "xQCycHMNxsA", width: 600, height: 400)
+@Html.YouTube("xQCycHMNxsA", 600, 400)
+@Html.YouTube("xQCycHMNxsA")
+@Html.YouTube("xQCycHMNxsA", 800)
+@Html.YouTube("xQCycHMNxsA", height: 400)

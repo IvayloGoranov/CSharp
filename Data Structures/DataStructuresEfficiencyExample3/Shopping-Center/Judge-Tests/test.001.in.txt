@@ -1,0 +1,5 @@
+4
+AddProduct laptop;1199;Lenovo
+AddProduct laptop;999;Lenovo
+AddProduct laptop;2500;Lenovo
+AddProduct laptop;2500;Lenovo

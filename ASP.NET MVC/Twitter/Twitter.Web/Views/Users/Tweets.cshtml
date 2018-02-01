@@ -1,0 +1,18 @@
+﻿@model PagedList.IPagedList<Twitter.Web.ViewModels.PostViewModel>
+@using PagedList.Mvc;
+
+@foreach (var post in Model)
+{
+    @Html.DisplayFor(x => post)
+    <hr>
+}
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@*@Html.PagedListPager(Model, page => Url.Action("Tweets", new { page, id = this.ViewBag.UserId }))*@
+@Html.PagedListPager(Model, page => Url.Action("Tweets", new { page, id = this.ViewBag.UserId }), 
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+        new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "results"}))
+
+

@@ -1,0 +1,38 @@
+﻿@using CarDealer.Models.ViewModels.Sales
+@model AddSaleConfirmationVm
+
+@{
+    ViewBag.Title = "AddConfirmation";
+}
+
+<h2>Review Sale</h2>
+
+<form method="post">
+    <input type="number" hidden="hidden" value="@Model.CarId" name="carId"/>
+    <input type="number" hidden="hidden" value="@Model.CustomerId" name="customerId" />
+    <input type="number" hidden="hidden" value="@Model.Discount" name="discount" />
+    <div class="form-group">
+        <label for="customer">Customer: </label>
+        <input class="form-control" type="text" id="customer" value="@Model.CustomerName" disabled="disabled"/>
+    </div>
+    <div class="form-group">
+        <label for="car">Car: </label>
+        <input class="form-control" type="text" id="car" value="@Model.CarRepresentation" disabled="disabled"/>
+    </div>
+    <div class="form-group">
+        <label for="discount">Discount: </label>
+        <input class="form-control" type="text" id="discount" value="@Model.Discount%" disabled="disabled"/>
+    </div>
+    <div class="form-group">
+        <label for="carPrice">Car: </label>
+        <input class="form-control" type="number" id="carPrice" value="@Model.CarPrice" disabled="disabled"/>
+    </div>
+    <div class="form-group">
+        <label for="finalCarPrice">Final Car Price: </label>
+        <input class="form-control" type="number" id="finalCarPrice" value="@Model.FinalCarPrice" disabled="disabled"/>
+    </div>
+    <div class="form-group">
+        @Html.ActionLink("Cancel", "All", null, new { @class = "btn btn-lg btn-info" })
+        <input type="submit" value="Finalize" class="btn btn-lg btn-primary"/>
+    </div>
+</form>

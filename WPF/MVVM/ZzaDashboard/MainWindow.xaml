@@ -1,0 +1,49 @@
+﻿<Window x:Class="ZzaDashboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ZzaDashboard"
+        xmlns:customers="clr-namespace:ZzaDashboard.Customers"
+        xmlns:orders="clr-namespace:ZzaDashboard.Orders"
+        xmlns:orderPrep="clr-namespace:ZzaDashboard.OrderPrep"
+        Title="MainWindow" 
+        Height="300" 
+        Width="300">
+    
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type customers:CustomerListViewModel}">
+            <customers:CustomerListView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type orders:OrdersViewModel}">
+            <orders:OrdersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type orderPrep:OrderPrepViewModel}">
+            <orderPrep:OrderPrepView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type customers:AddEditCustomerViewModel}">
+            <customers:AddEditCustomerView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="navigationBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Customers" Command="{Binding NavigationCommand}"
+                    CommandParameter="customers"/>
+            <Button Grid.Column="2" Content="OrderPrep" Command="{Binding NavigationCommand}"
+                    CommandParameter="orderPrep"/>
+        </Grid>
+        <Grid Grid.Row="1"  x:Name="mainContent">
+            <ContentControl Content="{Binding CurentViewModel}" />
+        </Grid>
+    </Grid>
+</Window>

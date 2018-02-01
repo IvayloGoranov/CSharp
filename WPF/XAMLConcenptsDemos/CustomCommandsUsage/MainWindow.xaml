@@ -1,0 +1,30 @@
+﻿<Window x:Class="CustomCommandsUsage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewModels="clr-namespace:CustomCommandsUsage.ViewModels"
+        Title="MainWindow" Height="201" Width="178">
+    <Window.Resources>
+        <viewModels:ViewModel x:Key="CurrentViewModel"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource CurrentViewModel}}" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <Label Target="{Binding ElementName=TextBoxToShow}">_enter text below: </Label>
+            <TextBox Name="TextBoxToShow">123123</TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Button  Content="Click Me!" HorizontalAlignment="Center" VerticalAlignment="Center"
+               CommandParameter="{Binding ElementName=TextBoxToShow, Path=Text}"
+               Command="{Binding MessageCommand}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <Label Target="{Binding ElementName=TextBoxResult}">See the result below: </Label>
+            <TextBlock Name="TextBoxResult" Text="{Binding TextToShow}"/>
+        </StackPanel>
+    </Grid>
+</Window>

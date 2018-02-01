@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBindingDemos.BackwardsBindingPage">
+  
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    
+    <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+      <Label x:Name="label" Text="TEXT" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+    </StackLayout>
+    
+    <Slider x:Name="scaleSlider" BindingContext="{x:Reference label}" Grid.Row="1" Grid.Column="1"
+            Maximum="10" Value="{Binding Scale, Mode=TwoWay}"/>
+
+    <Label BindingContext="{x:Reference scaleSlider}" 
+           Text="{Binding Value, StringFormat='Scale = {0:F1}'}" Grid.Row="1" Grid.Column="0"
+           YAlign="Center"/>
+
+    <Slider x:Name="rotationSlider" BindingContext="{x:Reference label}" Grid.Row="2" Grid.Column="1"
+            Maximum="360" Value="{Binding Rotation, Mode=TwoWay}"/>
+    
+  </Grid>
+  
+</ContentPage>

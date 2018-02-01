@@ -1,0 +1,50 @@
+﻿@using Helpers.Helpers
+@model IEnumerable<Helpers.Models.Person>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(person => person.Name)</th>
+        <th>@Html.DisplayNameFor(person => person.Age)</th>
+        <th>@Html.DisplayNameFor(person => person.Email)</th>
+        <th>@Html.DisplayNameFor(person => person.IsSubscribed)</th>
+    </tr>
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(persons => person.Name)</td>
+            <td>
+                @if (person.Age == 0)
+                {
+                    @:[Not Specified]
+                }
+                else
+                {
+                    @Html.DisplayFor(persons => person.Age)
+                }
+            </td>
+            <td>
+                @if (person.Email == null)
+                {
+                    @:[Not Specified]
+                }
+                else
+                {
+                    @Html.DisplayFor(persons => person.Email)
+                }
+            </td>
+            <td>
+                @if (person.IsSubscribed)
+                {
+                    @:Yes
+                }
+                else
+                {
+                    @:No
+                }
+            </td>
+        </tr>
+    }
+</table>

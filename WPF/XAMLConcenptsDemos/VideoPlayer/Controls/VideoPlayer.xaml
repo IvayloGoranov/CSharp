@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="VideoPlayer.Controls.VideoPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:classes="clr-namespace:VideoPlayer.Classes"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500"            >
+  <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <DockPanel LastChildFill="True" >
+      <Grid Name="PlaylistControls" DockPanel.Dock="Right" KeyDown="UserControl_KeyDown">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <ListView Name="ListBoxPlaylist" ItemsSource="{Binding ItemsSources}" Width="100"
+                Grid.Row="0"
+                  SelectionChanged="ListBoxPlaylist_SelectionChanged" KeyDown="UserControl_KeyDown">
+          <ListView.ItemsPanel>
+            <ItemsPanelTemplate>
+              <StackPanel Orientation="Vertical"/>
+            </ItemsPanelTemplate>
+          </ListView.ItemsPanel>
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding}" classes:ContentMargin.Margin="15"/>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+       </Grid>
+      <Grid Name="PlayerControls" DockPanel.Dock="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="GridVideoPanel" Grid.Row="0">
+          <StackPanel Orientation="Horizontal">
+            <MediaElement x:Name="VideoElement"                          
+                          Source="{Binding VideoSource}" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
+          </StackPanel>
+        </Grid>
+        <Grid x:Name="ControlsPanels" Grid.Row="1" KeyDown="UserControl_KeyDown">
+          <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="InformationPanels" Grid.Row="2" >
+          <StackPanel>
+            <StackPanel Orientation="Horizontal">
+              <Button Content="Show/Hide Playlist" Click="Button_Click"/>
+            </StackPanel>
+            <TextBlock x:Name="TextBlockInfo" 
+                       Text=""/>
+          </StackPanel>
+        </Grid>
+      </Grid>
+    </DockPanel>
+  </Grid>
+</UserControl>

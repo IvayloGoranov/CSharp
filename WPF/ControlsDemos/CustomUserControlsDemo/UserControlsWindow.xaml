@@ -1,0 +1,9 @@
+﻿<Window xmlns:my="clr-namespace:CustomUserControlsDemo"  
+        x:Class="CustomUserControlsDemo.UserControlsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="User Controls Demo" Height="149" Width="134" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+  <StackPanel>
+        <my:ImageButton ImageSource="Panda.png" Width="100" />
+    </StackPanel>
+</Window>

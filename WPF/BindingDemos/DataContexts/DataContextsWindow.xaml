@@ -1,0 +1,26 @@
+﻿<Window x:Class="DataContexts.DataContextsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Data Contexts Demo" Height="160" Width="177">
+    <Grid Name="GridMain" Height="100" Width="136">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Height="16" Width="44" Grid.Row="0" Grid.Column="0">Name:</TextBlock>
+        <TextBox Text="{Binding Path=Name}" HorizontalAlignment="Left"
+            Width="80" Height="25" Grid.Row="0" Grid.Column="1" />
+        <TextBlock Height="17" Grid.Row="1" Grid.Column="0" Width="38">Age:</TextBlock>
+        <TextBox Text="{Binding Path=Age, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" 
+            Height="25" Width="80" Grid.Row="1" Grid.Column="1" Margin="0,2"
+            Name="textBoxAge" />
+        <Button Name="birthdayButton" Click="birthdayButton_Click"
+            Grid.Row="2" Grid.Column="1" Height="30" Width="80"
+            HorizontalAlignment="Right" Margin="0,4,6,6">Birthday</Button>
+    </Grid>
+</Window>

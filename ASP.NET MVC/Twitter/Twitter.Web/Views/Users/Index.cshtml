@@ -1,0 +1,125 @@
+﻿@model Twitter.Web.ViewModels.UserProfileViewModel
+
+<div class="jumbotron">
+    <h2>@Html.DisplayFor(x => x.UserName)'s profile</h2>
+</div>
+
+@if (TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<div class="row">
+    <div class="col-xs-6 col-md-4">
+        <img src='@Url.Action("ShowImage", new { id = Model.UserId })' />
+        <br />
+        <strong>@Html.DisplayFor(x => x.FullName)</strong> @@@Html.DisplayFor(x => x.UserName)
+        <br />
+        @Html.DisplayFor(x => x.Summary)
+        <br />
+        <strong>@Html.DisplayNameFor(x => x.CreatedOn):</strong> 
+        @(((DateTime)Model.CreatedOn).ToString("d MMM yyyy"))
+        <br />
+        @if (this.User.Identity.Name == Model.UserName)
+        {
+            @Html.ActionLink("Edit Profile", "Edit", null, new { @class = "btn btn-primary" })
+            <br />
+            <br/>
+            @Html.ActionLink("Tweet", "Tweet", "Posts", null, new { @class = "btn btn-warning" })
+            <br />
+        }
+        else
+        {
+            if (Model.Followers.Contains(this.User.Identity.Name))
+            {
+                @Html.ActionLink("Unfollow", "Unfollow", new { id = Model.UserId },
+                                    new { @class = "btn btn-danger" })
+            }
+            else
+            {
+                @Html.ActionLink("Follow", "Follow", new { id = Model.UserId },
+                                     new { @class = "btn btn-success" })
+            }
+
+            <br />
+        }
+        
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <ul>
+                    <li class="menu-item">
+                        <span class="block">
+                            @Ajax.ActionLink("Tweets", "Tweets", new { id = Model.UserId },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "results",
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace,
+                                }, new { @class = "btn btn-info" })
+                        </span>
+                        <span class="block">@Model.Posts</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="block">
+                            @Ajax.ActionLink("Following", "Following", new { id = Model.UserId },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "results",
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace,
+                                }, new { @class = "btn btn-info" })
+                        </span>
+                        <span class="block">@Model.Followings</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="block">
+                            @Ajax.ActionLink("Followers", "Followers", new { id = Model.UserId },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "results",
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace,
+                                    AllowCache = true
+                                }, new { @class = "btn btn-info" })
+                        </span>
+                        <span class="block">@Model.Followers.Count()</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="block">
+                            @Ajax.ActionLink("Likes", "Likes", new { id = Model.UserId },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "results",
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace
+                                }, new { @class = "btn btn-info" })
+                        </span>
+                        <span class="block">@Model.Likes</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="block">
+                            @Ajax.ActionLink("Replies", "Answers", new { id = Model.UserId },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "results",
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace,
+                                }, new { @class = "btn btn-info" })
+                        </span>
+                        <span class="block">@Model.Answers</span>
+                    </li>
+                </ul>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8" id="results">
+                @{ Html.RenderAction("Tweets", new { id = Model.UserId }); }
+            </div>
+        </div>
+    </div>
+</div>
+

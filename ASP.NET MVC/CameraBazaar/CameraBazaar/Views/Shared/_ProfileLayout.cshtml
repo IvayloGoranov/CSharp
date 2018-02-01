@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-sm-offset-1">
+            <ul class="nav nav-pills">
+                <li role="presentation">
+                    @Html.ActionLink("All Cameras", "All", "Cameras")
+                </li>
+                <li role="presentation">
+                    @Html.ActionLink("My Profile", "Profile", "Users")
+                </li>
+                <li role="presentation">
+                    @Html.ActionLink("Edit My Profile", "EditProfile", "Users")
+                </li>
+                <li role="presentation">
+                    @Html.ActionLink("Add Camera", "Create", "Cameras")
+                </li>
+                <li role="presentation">
+                    <form method="post" action="/users/logout">
+                        <input type="submit" value="Logout" class="btn-info btn" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-7 col-lg-offset-1 container body-content ">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>Camera Bazaar - @DateTime.Now.Year</p>
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

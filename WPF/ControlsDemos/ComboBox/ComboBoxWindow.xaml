@@ -1,0 +1,31 @@
+﻿<Window x:Class="ComboBox.ComboBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBox Demo" Height="120" Width="300">
+  <ComboBox x:Name="ComboBoxPeople" IsDropDownOpen="True" IsEnabled="True">
+    <StackPanel Orientation="Horizontal" Margin="5" Width="250" Height="80">
+      <Image Source="Images\jessica.jpg"/>
+      <StackPanel Width="200">
+        <TextBlock Margin="5,0" FontSize="14" FontWeight="Bold" 
+                   VerticalAlignment="center">
+          Jessica Alba
+        </TextBlock>
+        <TextBlock Margin="5" VerticalAlignment="center" TextWrapping="Wrap">
+          Born in Pomona, California, on April 28, 1981, Jessica Alba and her family moved to Biloxi, Mississippi
+        </TextBlock>
+      </StackPanel>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="5" Width="250" Height="80">
+      <Image Source="Images\Developer.jpg"/>
+      <StackPanel Width="200">
+        <TextBlock Margin="5,0" FontSize="14" FontWeight="Bold"
+                   VerticalAlignment="center">
+          Addicted to ...
+        </TextBlock>
+        <TextBlock Margin="5" VerticalAlignment="center" TextWrapping="Wrap">
+          This is the professional developer
+        </TextBlock>
+      </StackPanel>
+    </StackPanel>
+  </ComboBox>
+</Window>

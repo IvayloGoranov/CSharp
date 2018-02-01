@@ -1,0 +1,8 @@
+﻿@model SubscriptionViewModel
+
+@Html.HiddenFor(x => x.Id)
+@Html.HiddenFor(x => x.Name)
+<div>
+    @Html.CheckBoxFor(x => x.Checked)
+    @Html.LabelFor(x => x.Checked, Model.Name)
+</div>

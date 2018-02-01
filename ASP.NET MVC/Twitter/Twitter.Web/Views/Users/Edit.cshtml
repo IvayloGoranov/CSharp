@@ -1,0 +1,64 @@
+﻿@model Twitter.Web.InputModels.EditUserInputModel
+
+@using (Html.BeginForm("FileUpload", "Users", FormMethod.Post,
+                                        new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>User avatar</legend>
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" style="width: 100%;"/>
+        <input type="submit" value="Upload" class="btn btn-primary" />
+    </fieldset>
+}
+
+<br/>
+
+@using (Html.BeginForm("Edit", "Users"))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>User details</legend>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(x => x.FullName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.FullName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.Email, new { @class = "form-control" })
+            </div>    
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Summary, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Summary, 10, 55, new { @class = "form-control" })
+            </div>    
+       </div>
+    </fieldset>
+
+    <br/>
+    
+    <fieldset>
+        <legend>Change password</legend>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+    </fieldset>
+
+    <input type="submit" name="name" value="Edit Profile" class = "btn btn-primary"/>
+}

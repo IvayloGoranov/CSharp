@@ -1,0 +1,77 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZzaDashboard.Customers"
+             xmlns:Data="clr-namespace:Zza.Data;assembly=Zza.Data" x:Class="ZzaDashboard.Customers.AddEditCustomerView"
+             xmlns:converter="clr-namespace:ZzaDashboard.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" 
+             d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <converter:NegatableBooleanToVisibilityConverter x:Key="visibilityConverter"/>
+        <converter:NegatableBooleanToVisibilityConverter x:Key="negativeVisibilityConverter"
+                                                         Negate="True"/>
+
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Valdiation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                       Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid1" Grid.Row="0" VerticalAlignment="Top" Margin="149,149,0,0" HorizontalAlignment="Left" 
+              DataContext="{Binding Customer}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" 
+                   HorizontalAlignment="Left" Grid.Column="0" Content="Email:"/>
+            <TextBox x:Name="emailTextBox" Width="120" VerticalAlignment="Center" 
+                     Text="{Binding Email, ValidatesOnNotifyDataErrors=True}" 
+                     Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" 
+                   Content="First Name:"/>
+            <TextBox x:Name="firstNameTextBox" Width="120" VerticalAlignment="Center" 
+                     Text="{Binding FirstName, ValidatesOnNotifyDataErrors=True}" 
+                     Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" 
+                   Content="Last Name:"/>
+            <TextBox x:Name="lastNameTextBox" Width="120" VerticalAlignment="Center" 
+                     Text="{Binding LastName, ValidatesOnNotifyDataErrors=True}" Grid.Row="2" Margin="3" 
+                     Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" 
+                   Content="Phone:"/>
+            <TextBox x:Name="phoneTextBox" Width="120" VerticalAlignment="Center" 
+                     Text="{Binding Phone, ValidatesOnNotifyDataErrors=True}" 
+                     Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="25,5,0,0" 
+                    VerticalAlignment="Top" Width="75" 
+                    Visibility="{Binding EditMode, Converter={StaticResource visibilityConverter}}"/>
+            <Button Content="Add" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="25,5,0,0" 
+                    VerticalAlignment="Top" Width="75"
+                    Visibility="{Binding EditMode, Converter={StaticResource negativeVisibilityConverter}}"/>
+            <Button Content="Cancel" Command="{Binding CancelCommand}" HorizontalAlignment="Left" Margin="150,5,0,0" 
+                    VerticalAlignment="Top" Width="75"/>
+        </Grid>
+    </Grid>
+</UserControl>

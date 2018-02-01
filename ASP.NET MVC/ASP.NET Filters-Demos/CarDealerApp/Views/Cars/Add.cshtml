@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Car</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.Label("Make")
+        @Html.Editor("Make", new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.Label("Model")
+        @Html.Editor("carModel", new { htmlAttributes = new { id = "Model", @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.Label("Travelled distance", new { @for = "travelled-distance" })
+        @Html.Editor("travelledDistance", new { htmlAttributes = new { type = "number", id = "travelled-distance", @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.Label("Parts")
+        @Html.Editor("Parts", new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-default btn-lg" />
+    </div>
+}

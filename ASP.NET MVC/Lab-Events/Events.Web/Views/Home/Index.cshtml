@@ -1,0 +1,11 @@
+﻿@model Events.Web.Models.UpcomingPassedEventsViewModel
+
+@{
+    ViewBag.Title = "Public Events";
+}
+
+@Html.Partial("_Events")
+
+@section scripts {
+    @Scripts.Render("~/bundles/ajax")
+}

@@ -1,0 +1,20 @@
+﻿
+#wrapper {
+     width: 960px;
+     margin: 10px auto;
+     background-color: rgba(254, 160, 0, 0.75);
+     padding: 20px;
+     border-radius: 30px;
+ }
+
+.label {
+    float: left;
+    margin-top: 30px;
+    margin-right: 5px;
+    color: #5E5E5E;
+}
+
+.text-box {
+    margin-top: 5px;
+    width: 500px;
+}

@@ -1,0 +1,33 @@
+﻿@model CameraBazaar.Models.ViewModels.DetailsCameraVm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Camera</h2>
+
+<div>
+    <h3>
+        @Html.DisplayFor(vm => vm.Make) @Html.DisplayFor(vm => vm.Model) - $@Html.DisplayFor(vm => vm.Price)
+        - @if (Model.Quantity == 0)
+        {
+            <span class="text-danger">Out of stock</span>
+        }
+        else
+        {
+            <span class="text-success">In stock</span>
+        }
+    </h3>
+    <img src="@Model.ImageUrl" alt="hello" width="200" height="200" />
+    <br />
+    @if (Model.Username != null)
+    {
+        <h3>@Html.ActionLink(Model.Username, "Profile", "Users")</h3>
+    }
+
+    <hr />
+    @Html.Partial("_CameraDetails", Model)
+</div>
+<p>
+    @Html.ActionLink("Back to List", "All")
+</p>

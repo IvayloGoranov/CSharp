@@ -1,0 +1,26 @@
+﻿@using CarDealer.Models.ViewModels
+@model AboutCarVm
+
+@{
+    ViewBag.Title = "About Car";
+}
+
+<h2>@Model.Car.Make</h2>
+<h3>Model: @Model.Car.Model</h3>
+<h3>Travelled Distance: @Model.Car.TravelledDistance</h3>
+<h3>Parts: </h3>
+
+<table class="table-striped table">
+    <tr>
+        <th>Part name</th>
+        <th>Part price</th>
+    </tr>
+
+    @foreach (var part in Model.Parts)
+    {
+        <tr>
+            <td>@part.Name</td>
+            <td>@part.Price</td>
+        </tr>
+    }
+</table>

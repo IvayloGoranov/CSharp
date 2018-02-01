@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeviceAPIs.ContactsPage">
+
+  <StackLayout Spacing="10">
+    <Label Text="Contacts Page" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <Button Text="Get Contacts" Clicked="Contacts_Clicked" />
+    <ListView x:Name="listViewContacts">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Name}" Detail="{Binding Number}">
+          </TextCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+  
+</ContentPage>

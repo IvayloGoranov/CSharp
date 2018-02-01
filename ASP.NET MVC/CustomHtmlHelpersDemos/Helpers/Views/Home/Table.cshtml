@@ -1,0 +1,13 @@
+﻿@using Helpers.Helpers
+@model IEnumerable<Helpers.Models.Human>
+@{
+    ViewBag.Title = "Table";
+}
+
+<h2>Table</h2>
+
+@Html.Table(Model)
+<hr />
+@Html.Table(Model, "table-stripped", "table-bordered")
+<hr />
+@Html.Table(Model, "table-condensed")

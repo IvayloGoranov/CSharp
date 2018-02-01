@@ -1,0 +1,74 @@
+﻿@model CameraBazaar.Models.ViewModels.DetailsCameraVm
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.IsFullFrame)
+    </dt>
+
+    <dd>
+        @if (Model.IsFullFrame)
+            {
+            @:Yes
+            }
+            else
+            {
+            @:No
+            }
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MinShutterSpeed)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MinShutterSpeed)"
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MaxShutterSpeed)
+    </dt>
+
+    <dd>
+        1/@Html.DisplayFor(model => model.MaxShutterSpeed)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MinIso)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MinIso)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MaxIso)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MaxIso)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.VideoResolution)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.VideoResolution)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.LightMetering)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.LightMetering)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+</dl>

@@ -1,0 +1,33 @@
+﻿@model PagedList.IPagedList<Twitter.Web.ViewModels.PostViewModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1>A twitter-like website</h1>
+</div>
+<p class="lead">Tweets by all users chronologically:</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by username: @Html.TextBox("SearchString")
+        <input type="submit" value="Search By Username" class="btn btn-primary"/>
+    </p>
+}
+
+@foreach (var post in Model)
+{
+    @Html.DisplayFor(x => post)
+    <hr>
+}
+
+<br/>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

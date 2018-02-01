@@ -1,0 +1,23 @@
+﻿@using ModelBinders.Models;
+@model MovieInputModel
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add with parameters</h2>
+
+@using (Html.BeginForm("AddWithParams", "Movies"))
+{
+    @Html.EditorForModel()
+
+    <input type="submit" name="name" value="Add Movie" />
+}
+
+<h2>Add with model</h2>
+
+@using (Html.BeginForm("AddWithModel", "Movies"))
+{
+    @Html.EditorForModel()
+
+    <input type="submit" name="name" value="Add Movie" />
+}

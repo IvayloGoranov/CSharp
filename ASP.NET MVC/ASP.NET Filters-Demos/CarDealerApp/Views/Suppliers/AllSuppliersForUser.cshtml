@@ -1,0 +1,39 @@
+﻿@using CarDealer.Models.ViewModels.Suppliers
+@model IEnumerable<SupplierAllVm>
+
+@{
+    ViewBag.Title = "AllSuppliersForUser";
+}
+
+<h2>AllSuppliersForUser</h2>
+
+<br />
+@Html.ActionLink("New Supplier", "Add", null, new { @class = "btn btn-lg btn-primary" })
+<br />
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <td>Name</td>
+        <td>Importer</td>
+        <td>Actions</td>
+    </tr>
+    @foreach (var supplier in Model)
+    {
+        <tr>
+            <td>@supplier.Name</td>
+            @if (supplier.IsImporter)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = supplier.Id} ,null)
+                @Html.ActionLink("Delete", "Delete", new { id = supplier.Id }, null)
+            </td>
+        </tr>
+    }
+</table>

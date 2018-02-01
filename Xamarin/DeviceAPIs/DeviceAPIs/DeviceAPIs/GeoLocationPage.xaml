@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeviceAPIs.GeoLocationPage">
+
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="20, 40, 20, 20"
+                Android="20, 20, 20, 20"
+                WinPhone="20, 20, 20, 20" />
+  </ContentPage.Padding>
+
+  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand">
+    <Label Text="Geolocation Page" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <Button Text="Locate me" Clicked="GeoLocation_Clicked" />
+  </StackLayout>
+
+  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand">
+    <Label Text="Latitude: " />
+    <Label x:Name="labelLatitude" />
+  </StackLayout>
+
+  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand">
+    <Label Text="Longtitude: " />
+    <Label x:Name="labelLongtitude" />
+  </StackLayout>
+
+</ContentPage>

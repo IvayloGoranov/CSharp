@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayStack", "ArrayStack\ArrayStack.csproj", "{F214261B-6E87-4FEE-AB81-1FD24A286CA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayStack.Tests", "ArrayStack.Tests\ArrayStack.Tests.csproj", "{C6BC22D1-9B36-47F7-A783-C684860DFAE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F214261B-6E87-4FEE-AB81-1FD24A286CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F214261B-6E87-4FEE-AB81-1FD24A286CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F214261B-6E87-4FEE-AB81-1FD24A286CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F214261B-6E87-4FEE-AB81-1FD24A286CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6BC22D1-9B36-47F7-A783-C684860DFAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6BC22D1-9B36-47F7-A783-C684860DFAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6BC22D1-9B36-47F7-A783-C684860DFAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6BC22D1-9B36-47F7-A783-C684860DFAE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

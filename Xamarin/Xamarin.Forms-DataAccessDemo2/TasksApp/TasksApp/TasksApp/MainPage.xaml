@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TasksApp"
+             x:Class="TasksApp.MainPage">
+
+  <StackLayout>
+    <ListView ItemsSource="{Binding Todos}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+              <ViewCell.View Height="100">
+                <StackLayout x:Name="rootItemTemplate">
+                  <StackLayout x:Name="displayTemplate" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                      <Label Text="{Binding Name}" Font="{x:Static local:LayoutSettings.LargeFont}"/>
+                    </StackLayout>
+                    <StackLayout>
+                      <Button Text="Delete" CommandParameter="{Binding Id}" Command="{Binding DeleteCommand}"/>
+                      <Button Text="Edit" CommandParameter="{Binding Id}" Command="{Binding EditCommand}"/>
+                    </StackLayout>
+                  </StackLayout>
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+
+  <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+    <Entry Text="{Binding NewTodo.Name}"/>
+    <Entry Text="{Binding NewTodo.Notes}"/>
+  </StackLayout>
+
+  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+    <Button Text="Add" Command="{Binding AddCommand}"/>
+    <Button Text="Refresh" Command="{Binding RefreshCommand}"/>
+  </StackLayout>
+
+</ContentPage>

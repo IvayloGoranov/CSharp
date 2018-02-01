@@ -1,0 +1,32 @@
+﻿<Window x:Class="ArcSegment.ArcSegmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ArcSegment Demo" Height="334" Width="555">
+    <Canvas>
+        <Ellipse Fill="Cyan" Stroke="Black" Width="140" Height="60" />
+           <Image Stretch="Fill" Opacity="0.5" />
+
+        <Path Fill="Cyan" Stroke="Black" Canvas.Left="180">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="0,11" IsClosed="True">
+                        <ArcSegment Point="50,61" Size="70,30"
+                            SweepDirection="Counterclockwise" IsLargeArc="False" />
+                    </PathFigure>
+                    <PathFigure StartPoint="30,11" IsClosed="True">
+                        <ArcSegment Point="80,61" Size="70,30"
+                            SweepDirection="Clockwise" IsLargeArc="True" />
+                    </PathFigure>
+                    <PathFigure StartPoint="240,1" IsClosed="True">
+                        <ArcSegment Point="290,51" Size="70,30"
+                            SweepDirection="Counterclockwise" IsLargeArc="True" />
+                    </PathFigure>
+                    <PathFigure StartPoint="280,1" IsClosed="True">
+                        <ArcSegment Point="330,51" Size="70,30"
+                            SweepDirection="Clockwise" IsLargeArc="False" />
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+</Window>

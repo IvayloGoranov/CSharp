@@ -1,0 +1,18 @@
+﻿<Window x:Class="BitmapEffects.EffectsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Bitmap Effects" Height="300" Width="300">
+  <StackPanel Orientation="Horizontal">
+    <StackPanel Orientation="Vertical">
+      <TextBlock Text="Normal Text" TextAlignment="Center" FontWeight="Bold" />
+      <RadioButton Content="Better in position 1?" GroupName="RadioButtonsGroup" />
+    </StackPanel>
+    <StackPanel Orientation="Vertical" Margin="10,0">
+      <StackPanel.BitmapEffect>
+        <BlurBitmapEffect Radius="3" />
+      </StackPanel.BitmapEffect>
+      <TextBlock Text="Blurred Text" TextAlignment="Center" FontWeight="Bold" />
+      <RadioButton Content="Or position 2?" GroupName="RadioButtonsGroup" />
+    </StackPanel>
+  </StackPanel>
+</Window>

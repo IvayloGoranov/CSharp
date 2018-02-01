@@ -1,0 +1,9 @@
+﻿<Window x:Class="RichTextBox.RichTextBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RichTextBox Demo" Height="284" Width="337">
+  <Canvas Background="LightBlue">
+    <RichTextBox SpellCheck.IsEnabled="True" Width="291" Height="221" AcceptsReturn="True"
+             Background="AliceBlue" AutoWordSelection="True" BorderBrush="Black" BorderThickness="2" Canvas.Left="12" Canvas.Top="12" />
+  </Canvas>
+</Window>

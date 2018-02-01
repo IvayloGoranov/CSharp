@@ -1,0 +1,26 @@
+﻿@using CarDealer.Models.ViewModels.Sales
+@model AddSaleVm
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Sale</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.Label("Customer")
+        @Html.DropDownListFor(vm => vm.Customers, new SelectList(Model.Customers, "Id", "Name"), new { id = "Customer", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Car")
+        @Html.DropDownListFor(vm => vm.Cars, new SelectList(Model.Cars, "Id", "MakeAndModel"), new { id = "Car", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Discount")
+        @Html.DropDownListFor(vm => vm.Cars, new SelectList(Model.Discounts), new { id = "Discount", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Submit" />
+    </div>
+}

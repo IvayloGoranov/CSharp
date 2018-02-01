@@ -1,0 +1,17 @@
+﻿@model CarDealer.Models.ViewModels.Parts.DeletePartVm
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>@Model.Name</h3>
+<h4>Price - @Model.Price</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("PartId", Model.Id)
+    <div class="form-group">
+        <input class="btn btn-danger" type="submit" value="Delete" />
+    </div>
+}

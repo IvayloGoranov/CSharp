@@ -1,0 +1,14 @@
+13
+DeleteProducts laptop;Lenovo
+AddProduct laptop;1199;Lenovo
+DeleteProducts laptop;Lenovo
+AddProduct laptop;999;Lenovo
+AddProduct laptop;2500;Lenovo
+AddProduct laptop;999;Lenovo
+AddProduct laptop;999;Toshiba
+DeleteProducts Toshiba;laptop
+DeleteProducts beer;Toshiba
+DeleteProducts laptop;Toshiba
+DeleteProducts laptop;Lenovo
+DeleteProducts laptop;Toshiba
+DeleteProducts laptop;Lenovo

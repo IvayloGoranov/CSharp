@@ -1,0 +1,54 @@
+﻿@model CarDealer.Models.ViewModels.Logs.AllLogsPageVm
+@{
+    ViewBag.Title = "All";
+    var url = $"/logs/all";
+    if (Model.WantedUserName != null)
+    {
+        url += $"/{Model.WantedUserName}";
+    }
+}
+
+<br />
+<form method="get">
+    <div class="form-group">
+        <input class="form-control" type="text" name="username" value="@Model.WantedUserName" placeholder="Username..."/>
+        <br />
+        <input class="btn-primary btn btn-lg" type="submit" value="Search Logs" />
+        <br />
+        <br />
+        @Html.ActionLink("Clear All Logs", "DeleteAll", null, new {@class = "btn btn-lg btn-warning" })
+    </div>
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <td>User</td>
+        <td>Operation</td>
+        <td>Modified Table</td>
+        <td>Time</td>
+    </tr>
+    @foreach (var log in Model.Logs)
+    {
+        <tr>
+            <td>@log.UserName</td>
+            <td>@log.Operation.ToString()</td>
+            <td>@log.ModfiedTable</td>
+            <td>@log.ModifiedAt</td>
+        </tr>
+    }
+</table>
+
+<p>Page @Model.CurrentPage of @Model.TotalNumberOfPages</p>
+@for (int i = 1; i <= Model.TotalNumberOfPages; i++)
+{
+    var currentUrl = url + $"?page={i}";
+    if (Model.CurrentPage == i)
+    {
+        @Html.ActionLink(i.ToString(), currentUrl, null, new { @class = "btn btn-sm btn-primary" })
+    }
+    else
+    {
+        @Html.ActionLink(i.ToString(), currentUrl, null, new { @class = "btn btn-sm" })
+    }
+}
+

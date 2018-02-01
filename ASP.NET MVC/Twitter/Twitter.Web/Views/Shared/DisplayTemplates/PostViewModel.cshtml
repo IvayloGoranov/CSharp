@@ -1,0 +1,61 @@
+﻿@model Twitter.Web.ViewModels.PostViewModel
+
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <h4>
+            @Html.ActionLink(Model.PostedBy, "Index", "Users", new { username = Model.PostedBy }, null) -
+            @Model.Title -
+            @(((DateTime)Model.CreatedOn).ToString("d MMM yyyy"))
+            @if (Model.Retweeted != null && (bool)Model.Retweeted)
+            {
+                <span>- Retweeted</span>   
+            }
+        </h4>
+        <div>
+            @Ajax.ActionLink("Like", "Like", "Posts", new { id = Model.Id },
+            new AjaxOptions
+            {
+                UpdateTargetId = string.Format("likes-{0}", Model.Id),
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+            }, new { @class = "btn btn-primary" })
+
+            @Html.ActionLink("Retweet", "Retweet", "Posts", new { id = Model.Id },
+                    new { @class = "btn btn-primary" })
+            @Html.ActionLink("Answer", "Answer", "Posts", new { id = Model.Id },
+                    new { @class = "btn btn-primary" })
+            @if (this.User.Identity.Name == Model.PostedBy)
+            {
+                @Html.ActionLink("Delete", "Delete", "Posts", new { id = Model.Id },
+                    new { @class = "btn btn-danger" })
+            }
+
+        </div>
+        <div id="likes-@Model.Id">
+            <strong>@Html.DisplayNameFor(x => Model.FavouritesCount):</strong>
+            @Html.DisplayFor(x => Model.FavouritesCount)
+        </div>   
+        <p>
+            @Model.Content
+            @Model.PostURL
+        </p>
+        @if (Model.Answers != null && Model.Answers.Any())
+        {
+            foreach (var answer in Model.Answers)
+            {
+                <div class="row">
+                    <div class="col-xs-12 col-md-8 col-md-offset-1">
+                        @Html.DisplayFor(x => answer)
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFormsRPNCalculator.CalculatorPage"
+             Padding="16">
+
+  <ContentPage.BackgroundColor>
+    <OnPlatform x:TypeArguments="Color" iOS="#fff0f0f0" Android="Black" />
+  </ContentPage.BackgroundColor>
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Button">
+        <Setter Property="BorderColor">
+          <Setter.Value>
+            <OnPlatform x:TypeArguments="Color" WinPhone="#FF404040" />
+          </Setter.Value>
+        </Setter>
+        <Setter Property="BackgroundColor">
+          <Setter.Value>
+            <OnPlatform x:TypeArguments="Color" iOS="White" WinPhone="#FF303030" />
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <Grid x:Name="LayoutRoot">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1.6*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+	  <ColumnDefinition Width="Auto" />
+	  <ColumnDefinition Width="Auto" />
+	  <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+	  
+	<Grid.RowSpacing>
+		<OnPlatform x:TypeArguments="x:Double" iOS="8" WinPhone="-10" />
+	</Grid.RowSpacing>
+
+	<Grid.ColumnSpacing>
+		<OnPlatform x:TypeArguments="x:Double" iOS="8" WinPhone="-10" />
+	</Grid.ColumnSpacing>
+
+	<ContentView Padding="8" Grid.Row="0" Grid.ColumnSpan="6">
+      <Label x:Name="Output" Text="{Binding Output}" Grid.Column="0" XAlign="End">
+        <Label.Font>
+          <OnPlatform x:TypeArguments="Font" iOS="36" Android="48" WinPhone="56" />
+        </Label.Font>
+      </Label>
+    </ContentView>
+
+    <Button Text="±" Grid.Row="1" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="±" />
+    <Button Text="EXP" Grid.Row="1" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="EXP" />
+    <Button Text="STO" Grid.Row="1" Grid.Column="4" Command="{Binding CalculatorCommand}" CommandParameter="STO" />
+    <Button Text="RCL" Grid.Row="1" Grid.Column="5" Command="{Binding CalculatorCommand}" CommandParameter="RCL" />
+
+    <Button Text="ENTER" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="ENTER" />
+    <Button Text="FIX" Grid.Row="2" Grid.Column="4" Command="{Binding CalculatorCommand}" CommandParameter="FIX" />
+    <Button Text="CLX" Grid.Row="2" Grid.Column="5" Command="{Binding CalculatorCommand}" CommandParameter="CLX" />
+
+    <Button Text="-" Grid.Row="3" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="-" />
+    <Button Text="7" Grid.Row="3" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="7" />
+    <Button Text="8" Grid.Row="3" Grid.Column="4" Command="{Binding CalculatorCommand}" CommandParameter="8" />
+    <Button Text="9" Grid.Row="3" Grid.Column="5" Command="{Binding CalculatorCommand}" CommandParameter="9" />
+
+    <Button Text="+" Grid.Row="4" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="+" />
+    <Button Text="4" Grid.Row="4" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="4" />
+    <Button Text="5" Grid.Row="4" Grid.Column="4" Command="{Binding CalculatorCommand}" CommandParameter="5" />
+    <Button Text="6" Grid.Row="4" Grid.Column="5" Command="{Binding CalculatorCommand}" CommandParameter="6" />
+
+    <Button Text="x" Grid.Row="5" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="x" />
+    <Button Text="1" Grid.Row="5" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="1" />
+    <Button Text="2" Grid.Row="5" Grid.Column="4" Command="{Binding CalculatorCommand}" CommandParameter="2" />
+    <Button Text="3" Grid.Row="5" Grid.Column="5" Command="{Binding CalculatorCommand}" CommandParameter="3" />
+
+    <Button Text="÷" Grid.Row="6" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="÷" />
+    <Button Text="0" Grid.Row="6" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="0" />
+    <Button Text="." Grid.Row="6" Grid.Column="4" Command="{Binding CalculatorCommand}" CommandParameter="." />
+    <Button Text="DEL" Grid.Row="6" Grid.Column="5" Command="{Binding CalculatorCommand}" CommandParameter="DEL" />
+
+	<!-- Buttons visible only in landscape mode -->
+	<Button Text="sin" Grid.Row="1" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="sin" IsVisible="False" />
+	<Button Text="cos" Grid.Row="2" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="cos" IsVisible="False" />
+	<Button Text="tan" Grid.Row="3" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="tan" IsVisible="False" />
+	<Button Text="asin" Grid.Row="4" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="asin" IsVisible="False" />
+	<Button Text="acos" Grid.Row="5" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="acos" IsVisible="False" />
+	<Button Text="atan" Grid.Row="6" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="atan" IsVisible="False" />
+
+	<Button Text="1/x" Grid.Row="1" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="1/x" IsVisible="False" />
+	<Button Text="sqrt" Grid.Row="2" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="sqrt" IsVisible="False" />
+	<Button Text="x²" Grid.Row="3" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="x²" IsVisible="False" />
+	<Button Text="log" Grid.Row="4" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="log" IsVisible="False" />
+	<Button Text="ln" Grid.Row="5" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="ln" IsVisible="False" />
+	<Button Text="π" Grid.Row="6" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="π" IsVisible="False" />
+  </Grid>
+</ContentPage>

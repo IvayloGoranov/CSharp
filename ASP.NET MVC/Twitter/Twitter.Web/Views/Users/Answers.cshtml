@@ -1,0 +1,19 @@
+﻿@model PagedList.IPagedList<Twitter.Web.ViewModels.PostViewModel>
+@using PagedList.Mvc;
+
+@foreach (var answer in Model)
+{
+    <strong>Reply to @Html.ActionLink(answer.QuestionPostedBy, "Index", "Users", 
+                            new { username = answer.QuestionPostedBy }, null)'s 
+    @Html.DisplayFor(x => answer.QuestionTitle) </strong>
+    @Html.DisplayFor(x => answer)
+    <hr>
+}
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Answers", new { page, id = this.ViewBag.UserId }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+        new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "results" }))
+

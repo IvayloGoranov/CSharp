@@ -1,0 +1,25 @@
+﻿@model PagedList.IPagedList<Twitter.Web.ViewModels.NotificationViewModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Notifications";
+}
+
+<div class="jumbotron">
+    <h1>User Notifications</h1>
+</div>
+@foreach (var notification in Model)
+{
+    @Html.DisplayFor(x => notification)
+    <hr>
+}
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

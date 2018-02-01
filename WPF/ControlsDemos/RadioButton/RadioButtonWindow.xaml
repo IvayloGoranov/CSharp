@@ -1,0 +1,17 @@
+﻿<Window x:Class="RadioButton.RadioButtonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RadioButton Demo" Height="222" Width="275">
+    <StackPanel Height="181" Width="256">
+        <TextBlock Text="Fuels" FontSize="15" Foreground="Red"/>
+        <RadioButton GroupName="Fuel" Margin="3" >Petrol</RadioButton>
+        <RadioButton GroupName="Fuel" Margin="3">Diesel</RadioButton>
+        <Line Width="Auto" Height="15" Visibility="Visible"/>
+        <TextBlock Text="Induction" FontSize="15" Foreground="Red"/>
+        <RadioButton GroupName="Induction" Margin="3">Unforced</RadioButton>
+        <RadioButton GroupName="Induction" Margin="3">
+            Mechanical supercharger
+        </RadioButton>
+        <RadioButton GroupName="Induction" Margin="3">Turbocharger</RadioButton>
+    </StackPanel>
+</Window>

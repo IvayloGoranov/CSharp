@@ -1,0 +1,25 @@
+﻿<Window x:Class="Path.PathWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Path Demo" Height="300" Width="300">
+  <Canvas>
+    <Path Fill="Cyan" Stroke="Black">
+      <Path.Data>
+        <EllipseGeometry Center="20, 40" RadiusX="20" RadiusY="40" />
+      </Path.Data>
+    </Path>
+    <Path Fill="Cyan" Stroke="Black">
+      <Path.Data>
+        <EllipseGeometry Center="20, 40" RadiusX="10" RadiusY="30" />
+      </Path.Data>
+    </Path>
+    <Path Fill="Cyan" Stroke="Black" Height="80.5" Canvas.Left="66" Canvas.Top="0" Width="40">
+      <Path.Data>
+        <GeometryGroup>
+          <EllipseGeometry Center="20, 40" RadiusX="20" RadiusY="40" />
+          <EllipseGeometry Center="20, 40" RadiusX="10" RadiusY="30" />
+        </GeometryGroup>
+      </Path.Data>
+    </Path>
+  </Canvas>
+</Window>

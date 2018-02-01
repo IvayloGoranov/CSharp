@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInsertion", "SimpleInsertion\SimpleInsertion.csproj", "{D23287E2-FC82-4886-BF36-6BFAC3F481EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selection", "Selection\Selection.csproj", "{50135A28-ACD0-44E3-AA57-7145029F1A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectionWithSqlInjection", "SelectionWithSqlInjection\SelectionWithSqlInjection.csproj", "{7FB377D8-56B9-48BC-93F2-FDAF61AAC163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectionWithoutSqlInjection", "SelectionWithoutSqlInjection\SelectionWithoutSqlInjection.csproj", "{84092833-C7AF-4EAF-8E18-90F3A5E6CE33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D23287E2-FC82-4886-BF36-6BFAC3F481EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23287E2-FC82-4886-BF36-6BFAC3F481EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23287E2-FC82-4886-BF36-6BFAC3F481EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23287E2-FC82-4886-BF36-6BFAC3F481EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50135A28-ACD0-44E3-AA57-7145029F1A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50135A28-ACD0-44E3-AA57-7145029F1A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50135A28-ACD0-44E3-AA57-7145029F1A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50135A28-ACD0-44E3-AA57-7145029F1A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB377D8-56B9-48BC-93F2-FDAF61AAC163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB377D8-56B9-48BC-93F2-FDAF61AAC163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB377D8-56B9-48BC-93F2-FDAF61AAC163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB377D8-56B9-48BC-93F2-FDAF61AAC163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84092833-C7AF-4EAF-8E18-90F3A5E6CE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84092833-C7AF-4EAF-8E18-90F3A5E6CE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84092833-C7AF-4EAF-8E18-90F3A5E6CE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84092833-C7AF-4EAF-8E18-90F3A5E6CE33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

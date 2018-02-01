@@ -1,0 +1,57 @@
+﻿<Window x:Class="BindingLists.PathWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DisplayMemberPath and ValueMemberPath"
+        Height="296" Width="384" 
+        xmlns:local="clr-namespace:BindingLists">
+    <Window.Resources>
+        <local:People x:Key="Family">
+            <local:Person Name="Ivancho" Age="11"/>
+            <local:Person Name="Gergana" Age="27"/>
+            <local:Person Name="Mincho" Age="12"/>
+            <local:Person Name="Maria" Age="33"/>
+            <local:Person Name="Kolio" Age="27"/>
+        </local:People>
+        <local:AgeToForegroundConverter
+      x:Key="ageConverter" />
+    </Window.Resources>
+    <Grid Name="grid" Height="260" Width="364" DataContext="{StaticResource Family}">
+
+        <TextBlock Height="22" HorizontalAlignment="Left" Margin="47,6,0,0" 
+            VerticalAlignment="Top" Width="305">List of Persons:</TextBlock>
+        <ListBox Height="69" Margin="47,26,12,0" Name="ListBoxPeople" 
+            ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="Age" 
+            IsSynchronizedWithCurrentItem="True" VerticalAlignment="Top"
+            SelectionChanged="ListBoxPeople_SelectionChanged" />
+
+        <TextBlock Width="44" Height="25" HorizontalAlignment="Left"
+            VerticalAlignment="Top" Margin="3,101,0,0">Name:</TextBlock>
+        <TextBox Text="{Binding Path=Name}" Margin="47,101,12,0" Height="25"
+            VerticalAlignment="Top" />
+
+        <TextBlock Margin="3,132,0,0" Width="44" Height="25" 
+            HorizontalAlignment="Left" VerticalAlignment="Top">Age:</TextBlock>
+        <TextBox Name="AgeTextBox" Text="{Binding Path=Age}" 
+            Foreground="{Binding Path=Age, Converter={StaticResource ageConverter}}"  
+            Margin="0,132,12,0" Height="25" VerticalAlignment="Top"
+            HorizontalAlignment="Right" Width="305" />
+
+        <Button Name="BirthdayButton" FontSize="20" Margin="0,165,12,0"
+            Foreground="{Binding Path=Foreground, ElementName=AgeTextBox}" 
+            Click="BirthdayButton_Click" VerticalAlignment="Top"
+            HorizontalAlignment="Right" Height="41" Width="305">Birthday</Button>
+
+        <Button Name="ButtonBack" Click="ButtonBack_Click" FontSize="20"
+            VerticalAlignment="Top" HorizontalAlignment="Left"
+            Margin="47,215,0,0" Width="96" Height="35">
+            &lt;
+        </Button>
+
+        <Button Name="ButtonForward" Click="ButtonForward_Click"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Margin="0,215,12,0" FontSize="20" Width="102" Height="35">
+            &gt;
+        </Button>
+
+    </Grid>
+</Window>

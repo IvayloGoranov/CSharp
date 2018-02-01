@@ -1,0 +1,12 @@
+11
+DeleteProducts Lenovo
+AddProduct laptop;1199;Lenovo
+DeleteProducts Lenovo
+AddProduct laptop;999;Lenovo
+AddProduct laptop;2500;Lenovo
+AddProduct laptop;999;Lenovo
+AddProduct laptop;999;Toshiba
+DeleteProducts Toshiba
+DeleteProducts Lenovo
+DeleteProducts Toshiba
+DeleteProducts Lenovo

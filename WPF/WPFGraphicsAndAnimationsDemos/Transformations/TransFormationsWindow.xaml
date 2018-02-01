@@ -1,0 +1,14 @@
+﻿<Window x:Class="Transformations.TransformationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Transformations Demo" Height="300" Width="300" Background="DarkGreen">
+    <Button Width="180" Height="60" Canvas.Left="100" Canvas.Top="100">
+        I'm rotated at 35 degrees
+        <Button.RenderTransform>
+            <TransformGroup>
+                <RotateTransform Angle="35" CenterX="45" CenterY="5" />
+                <SkewTransform AngleX="40" AngleY="0" CenterX="100" CenterY="30" />
+            </TransformGroup>
+        </Button.RenderTransform>
+    </Button>
+</Window>

@@ -1,0 +1,37 @@
+﻿@using ModelBinders.Models;
+@model IList<MovieInputModel>
+@{
+    ViewBag.Title = "AddCollectionOfMovies";
+}
+
+<h2>AddCollectionOfMovies</h2>
+
+@using (Html.BeginForm("AddCollectionOfMovies", "Movies"))
+{
+    for (int i = 0; i < 3; i++)
+    {
+        <div class="form-control">
+            @Html.LabelFor(x => Model[i].Title)
+            @Html.EditorFor(x => Model[i].Title)
+        </div>
+
+        <div class="form-control">
+            @Html.LabelFor(x => Model[i].Review)
+            @Html.EditorFor(x => Model[i].Review)
+        </div>
+
+        <div class="form-control">
+            @Html.LabelFor(x => Model[i].LengthInMinutes)
+            @Html.EditorFor(x => Model[i].LengthInMinutes)
+        </div>
+
+        <div class="form-control">
+            @Html.LabelFor(x => Model[i].ReleaseDate)
+            @Html.EditorFor(x => Model[i].ReleaseDate)
+        </div>
+    }
+    
+    <div class="form-control">
+        <input type="submit" name="name" value="Add Movies" />
+    </div>
+}

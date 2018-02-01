@@ -1,0 +1,14 @@
+﻿@using CarDealer.Models.ViewModels.Suppliers
+@model DeleteSuplierVm
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Supplier</h2>
+
+<h3>@Model.Name</h3>
+
+<form method="post">
+    <input type="number" value="@Model.Id" name="Id" hidden="hidden"/>
+    <input type="submit" value="Delete" />
+</form>

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<FruitViewModel>
+
+@{
+    ViewBag.Title = "Fruits";
+}
+
+@if (TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-success" id="errorBox">
+        @TempData["Message"]
+    </div>
+}
+
+<section id="infoBox"></section>
+
+<h2>Fruits</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Add", "Fruits", null, new { @class="btn btn-default" })
+</p>
+
+@using (Html.BeginForm("Index", "Fruits", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-md-10">
+            @Html.Label("Fruit importance:", "Fruit importance:", new { @class = "control-label" })
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <input type="submit" value="Show Only Important Fruit" class="btn btn-default" />
+                </div>
+                @Html.DropDownList("filterValue", Html.GetEnumSelectList<Importance>(), new { @class = "form-control" })
+
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table" id="data">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Action
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+             <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class= "btn btn-default"}) |
+                 <button data-url='@Url.Action("Delete", "Fruits", new { id = item.Id } )' 
+                         data-id='@item.Id'  class="delete-button btn btn-default">
+                    Delete
+                 </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    <script>
+        $("#data tr").click(function () {
+            var selected = $(this).hasClass("highlight");
+            var isHeaderRow = $(this).index() == 0;
+
+            $("#data tr").removeClass("highlight");
+
+            if (!selected && !isHeaderRow) {
+                $(this).addClass("highlight");
+            }
+        });
+
+        $('.delete-button').on('click', function (evt) {
+            evt.preventDefault();
+            evt.stopPropagation();
+
+            var url = $(this).data('url');
+            var id = $(this).data('id');
+            var row = $(this).parent().parent();
+
+            $.ajax({
+                type: "post",
+                url: url,
+                ajaxasync: true,
+                data: { id : id },
+                success: function () {
+                    row.fadeOut(function () {
+                        row.remove();
+                        $('#infoBox').text("Fruit deleted");
+                        $('#infoBox').addClass("alert alert-success");
+                    });
+                },
+                error: function (data) {
+                    alert(data.x);
+                }
+            });
+        });
+    </script>
+}

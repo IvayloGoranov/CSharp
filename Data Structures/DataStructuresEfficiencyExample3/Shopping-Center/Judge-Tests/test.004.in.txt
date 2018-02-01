@@ -1,0 +1,14 @@
+13
+FindProductsByPriceRange 100;200
+AddProduct laptop;1199;Lenovo
+FindProductsByPriceRange 1000;2000
+AddProduct laptop;999;Lenovo
+FindProductsByPriceRange 1000;2000
+FindProductsByPriceRange -1000;999999
+AddProduct laptop;2500;Lenovo
+FindProductsByPriceRange 1000;2499
+FindProductsByPriceRange 999;2500
+AddProduct laptop;999;Lenovo
+AddProduct laptop;999;Toshiba
+FindProductsByPriceRange 999.01;2499.99
+FindProductsByPriceRange 998.99;2500.01

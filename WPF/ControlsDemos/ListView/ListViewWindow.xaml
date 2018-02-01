@@ -1,0 +1,23 @@
+﻿<Window x:Class="ListView.ListViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ListView Demo" Height="405" Width="469">
+  <ListView ItemsSource="{x:Static Fonts.SystemFontFamilies}">
+    <ListView.View>
+      <GridView>
+        <GridViewColumn Header="Name"
+                        DisplayMemberBinding="{Binding Source}" />
+        <GridViewColumn Header="Line Spacing"
+                        DisplayMemberBinding="{Binding LineSpacing}" />
+        <GridViewColumn Header="Sample">
+          <GridViewColumn.CellTemplate>
+            <DataTemplate>
+              <TextBlock FontFamily="{Binding}" FontSize="20"
+                         Text="ABCDEFGabcdefg" />
+            </DataTemplate>
+          </GridViewColumn.CellTemplate>
+        </GridViewColumn>
+      </GridView>
+    </ListView.View>
+  </ListView>
+</Window>

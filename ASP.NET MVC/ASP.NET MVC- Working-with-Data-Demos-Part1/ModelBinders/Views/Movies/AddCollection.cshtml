@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "AddCollection";
+}
+
+<h2>Add Collection of values</h2>
+
+@using (Html.BeginForm("AddCollection", "Movies"))
+{
+    <input type="text" name="values" value="" /> <br/>
+    <input type="text" name="values" value="" /> <br />
+    <input type="text" name="values" value="" />    <br />
+    <input type="text" name="values" value="" />    <br />
+    <input type="text" name="values" value=""/>    <br />
+
+    <input type="submit" value="Add Values" />
+}

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassDefect.Models", "MassDefect.Models\MassDefect.Models.csproj", "{C42853A8-7F8D-4CD9-A730-1032E1FBBFDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassDefect.Data", "MassDefect.Data\MassDefect.Data.csproj", "{A2FC35B7-E4DE-4DA7-8A73-C611E4114004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassDefect.Client", "MassDefect.Client\MassDefect.Client.csproj", "{B1A1541C-9495-44F2-BDA1-51C7E016F6EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C42853A8-7F8D-4CD9-A730-1032E1FBBFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42853A8-7F8D-4CD9-A730-1032E1FBBFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42853A8-7F8D-4CD9-A730-1032E1FBBFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42853A8-7F8D-4CD9-A730-1032E1FBBFDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FC35B7-E4DE-4DA7-8A73-C611E4114004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FC35B7-E4DE-4DA7-8A73-C611E4114004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FC35B7-E4DE-4DA7-8A73-C611E4114004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FC35B7-E4DE-4DA7-8A73-C611E4114004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A1541C-9495-44F2-BDA1-51C7E016F6EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A1541C-9495-44F2-BDA1-51C7E016F6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A1541C-9495-44F2-BDA1-51C7E016F6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A1541C-9495-44F2-BDA1-51C7E016F6EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

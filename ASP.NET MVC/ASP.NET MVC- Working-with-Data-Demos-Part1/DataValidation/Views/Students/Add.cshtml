@@ -1,0 +1,34 @@
+﻿@model DataValidation.Models.Student
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add student</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(x => x.FullName)
+        @Html.EditorFor(x => x.FullName)
+        @Html.ValidationMessageFor(x => x.FullName)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.FacultyNumber)
+        @Html.EditorFor(x => x.FacultyNumber)
+        @Html.ValidationMessageFor(x => x.FacultyNumber)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.AverageGrade)
+        @Html.EditorFor(x => x.AverageGrade)
+        @Html.ValidationMessageFor(x => x.AverageGrade)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.RegistrationDate)
+        @Html.EditorFor(x => x.RegistrationDate)
+        @Html.ValidationMessageFor(x => x.RegistrationDate)
+    </div>
+    <div>
+        <input type="submit" name="name" value="Add Student" />
+    </div>
+
+}

@@ -1,0 +1,11 @@
+﻿<Window x:Class="ImageBrush.ImageBrushWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ImageBrush Demo" Height="300" Width="300">
+  <Rectangle>
+    <Rectangle.Fill>
+      <ImageBrush ImageSource="Images\CaffeineCat.jpg" Stretch="UniformToFill"
+        Viewport="0,0,100,160" ViewportUnits="Absolute" TileMode="Tile" />
+    </Rectangle.Fill>
+  </Rectangle>
+</Window>

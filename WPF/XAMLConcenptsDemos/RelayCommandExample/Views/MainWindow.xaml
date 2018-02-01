@@ -1,0 +1,11 @@
+﻿<Window x:Class="RelayCommandExample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:me="clr-namespace:RelayCommandExample.ViewModels" Title="Window1" Height="300" Width="300">
+    <Window.DataContext>
+        <me:MainViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <TextBox Name="TextBoxWithText"> Some text to test with</TextBox>
+        <Button CommandParameter="{Binding ElementName=TextBoxWithText,Path=Text}" Command="{Binding ClickCommand}" Content="Click"/>
+    </StackPanel>
+</Window>

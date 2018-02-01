@@ -1,0 +1,52 @@
+﻿<Window x:Class="ToolBar.ToolBarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ToolBar Demo" Height="300" Width="300">
+  <ToolBarTray>
+    <ToolBar>
+      <Button>
+        <Canvas Width="16" Height="16" SnapsToDevicePixels="True">
+          <Polygon Stroke="Black" StrokeThickness="0.5"
+                   Points="2.5,1.5 9.5,1.5 12.5,4.5 12.5,15 2.5,15">
+            <Polygon.Fill>
+              <LinearGradientBrush StartPoint="1,1" EndPoint="0.2,0.7">
+                <GradientStop Offset="0" Color="#AAA" />
+                <GradientStop Offset="1" Color="White" />
+              </LinearGradientBrush>
+            </Polygon.Fill>
+          </Polygon>
+          <Polygon Stroke="Black" Fill="DarkGray" StrokeThickness="0.5"
+                   StrokeLineJoin="Bevel"
+                   Points="9.5,1.5 9.5,4.5 12.5,4.5" />
+        </Canvas>
+      </Button>
+      <Button>
+        <Canvas Width="16" Height="16" >
+          <Polygon Stroke="Black" StrokeThickness="0.5" Fill="Khaki"
+                   SnapsToDevicePixels="True"
+                   Points="0.5,14.5 0.5,4.5 1.5,3.5 6.5,3.5 8.5,5.5
+                   12.5,5.5 12.5,14.5" />
+          <Polygon Stroke="Black" SnapsToDevicePixels="True"
+                   StrokeThickness="0.5"
+                   Points="1.5,14.5 4.5,7.5 15.5,7.5 12.5,14.5" >
+            <Polygon.Fill>
+              <LinearGradientBrush StartPoint="0.25,0" EndPoint="0.5,1">
+                <GradientStop Offset="0" Color="#FF4" />
+                <GradientStop Offset="1" Color="#CA7" />
+              </LinearGradientBrush>
+            </Polygon.Fill>
+          </Polygon>
+          <Path    Stroke="Blue" StrokeThickness="1"
+                   Data="M 8,2 C 9,1 12,1 14,3"  />
+          <Polygon Fill="Blue" Points="15,1 15.5,4.5 12,4" />
+        </Canvas>
+      </Button>
+    </ToolBar>
+    <ToolBar>
+      <Button>
+        Second toolbar
+      </Button>
+      <CheckBox IsChecked="True">Choice</CheckBox>
+    </ToolBar>
+  </ToolBarTray>
+</Window>

@@ -1,0 +1,90 @@
+﻿<Window x:Class="Grouping.GroupingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Grouping" Height="386" Width="396" 
+        xmlns:local="clr-namespace:Grouping">
+  <Window.Resources>
+    <local:People x:Key="Family">
+      <local:Person Name="Hasancho" Age="11"/>
+      <local:Person Name="Ivancho" Age="12"/>
+      <local:Person Name="Bai-Mangal" Age="38"/>
+      <local:Person Name="Kaka Mara" Age="38"/>
+    </local:People>
+    <local:NamedAges x:Key="NamedAgeLookup">
+      <local:NamedAge NameForAge="Zero" AgeId="0" />
+      <local:NamedAge NameForAge="One" AgeId="1" />
+      <local:NamedAge NameForAge="Two" AgeId="2" />
+      <local:NamedAge NameForAge="Three" AgeId="3" />
+      <local:NamedAge NameForAge="Four" AgeId="4" />
+      <local:NamedAge NameForAge="Five" AgeId="5" />
+      <local:NamedAge NameForAge="Six" AgeId="6" />
+      <local:NamedAge NameForAge="Seven" AgeId="7" />
+      <local:NamedAge NameForAge="Eight" AgeId="8" />
+      <local:NamedAge NameForAge="Nine" AgeId="9" />
+      <local:NamedAge NameForAge="Ten" AgeId="10" />
+      <local:NamedAge NameForAge="Eleven" AgeId="11" />
+      <local:NamedAge NameForAge="Twelve" AgeId="12" />
+      <local:NamedAge NameForAge="Thirteen" AgeId="13" />
+    </local:NamedAges>
+    <local:AgeToForegroundConverter
+      x:Key="ageConverter" />
+  </Window.Resources>
+    
+  <Grid Name="GridMain" Height="351" Width="364" DataContext="{StaticResource Family}">
+      
+    <TextBlock Height="22" HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Width="44" Margin="0,95,0,0">Name:</TextBlock>
+    <TextBox Text="{Binding Path=Name}" Margin="44,92,15,0" Height="25" VerticalAlignment="Top" />
+      
+    <TextBlock Margin="0,138,0,0" HorizontalAlignment="Left" Width="38" Height="22" 
+               VerticalAlignment="Top">Age:</TextBlock>
+    <TextBox Name="AgeTextBox" Text="{Binding Path=Age}" 
+             Foreground="{Binding Path=Age ,Converter={StaticResource ageConverter}}" 
+             Margin="44,135,15,0" Height="25" VerticalAlignment="Top" />
+   
+    <Button FontSize="20" Foreground="{Binding Path=Foreground, ElementName=ageTextBox}" 
+            Click="BirthdayButton_Click" Name="BirthdayButton" Margin="44,0,15,90" Height="41"
+            VerticalAlignment="Bottom">Birthday</Button>
+    
+    <Button FontSize="20" Click="ButtonBack_Click" Height="35" Margin="44,0,0,11" Name="ButtonBack" 
+            VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="102">
+      &lt;
+    </Button>
+    
+    <Button FontSize="20" Click="ButtonForward_Click" Height="35" HorizontalAlignment="Right" Margin="0,0,15,11" 
+            Name="ButtonForward" VerticalAlignment="Bottom" Width="102">
+      &gt;
+    </Button>
+    
+    <ListBox MouseDoubleClick="ListBoxPeople_MouseDoubleClick" Height="59" Margin="44,14,15,0"
+             Name="ListBoxPeople" VerticalAlignment="Top" ItemsSource="{Binding}" 
+             SelectedValuePath="Age" IsSynchronizedWithCurrentItem="True" >
+      <ListBox.GroupStyle>
+        <x:Static Member="GroupStyle.Default" />
+      </ListBox.GroupStyle>
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <TextBlock>
+            <TextBlock Text="{Binding Path=Name}" />
+            (age: <TextBlock
+              Text="{Binding Path=Age}" Foreground="{Binding Path=Age, Converter={StaticResource ageConverter}}" />)
+          </TextBlock>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    
+    <ComboBox ItemsSource="{Binding Source={StaticResource NamedAgeLookup}}"
+              DisplayMemberPath="NameForAge" SelectedValuePath="AgeId"  SelectedValue="{Binding Path=Age}" 
+              Margin="44,175.138,15,152.862" Name="ComboBoxNumbers" />
+    
+    <Button Click="ButtonSort_Click" Height="23" HorizontalAlignment="Left" Margin="44,0,0,56" Name="ButtonSort"
+            VerticalAlignment="Bottom" Width="75">Sort</Button>
+    
+    <Button Click="ButtonFilter_Click" Height="23" Margin="159,0,0,56" Name="ButtonFilter" VerticalAlignment="Bottom"
+            HorizontalAlignment="Left" Width="75">Filter</Button>
+    
+    <Button Click="ButtonGrouping_Click" Height="23" HorizontalAlignment="Right" Margin="0,0,15,56" 
+            Name="ButtonGrouping" VerticalAlignment="Bottom" Width="75">Grouping</Button>
+  </Grid>
+    
+</Window>

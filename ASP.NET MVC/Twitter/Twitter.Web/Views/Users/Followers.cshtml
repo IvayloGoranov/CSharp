@@ -1,0 +1,16 @@
+﻿@model PagedList.IPagedList<string>
+@using PagedList.Mvc;
+
+@foreach (var follower in Model)
+{
+    @Html.ActionLink(follower, "Index", "Users", new { username = follower }, null)
+    <hr>
+}
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Followers", new { page, id = this.ViewBag.UserId }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+        new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "results" }))
+

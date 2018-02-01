@@ -1,0 +1,18 @@
+﻿@model Twitter.Web.ViewModels.NotificationViewModel
+
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <h4>
+            @Model.Title -
+            @Model.CreatedOn.ToString("d MMM yyyy")
+        </h4>
+        <div>
+            @Html.ActionLink("Delete", "Delete", "Notifications", new { id = Model.Id },
+                    new { @class = "btn btn-danger" })
+        </div>
+        <p>
+            @Model.Content
+        </p>
+    </div>
+</div>
+

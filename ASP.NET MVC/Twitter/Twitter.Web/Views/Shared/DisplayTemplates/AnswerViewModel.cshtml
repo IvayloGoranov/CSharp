@@ -1,0 +1,30 @@
+﻿@model Twitter.Web.ViewModels.AnswerViewModel
+
+<h4>
+    @Html.ActionLink(Model.PostedBy, "Index", "Users", new { username = Model.PostedBy }, null) -
+    @Model.Title -
+    @(((DateTime)Model.CreatedOn).ToString("d MMM yyyy"))
+</h4>
+<div>
+    @Ajax.ActionLink("Like", "Like", "Posts", new { id = Model.Id },
+            new AjaxOptions
+            {
+                UpdateTargetId = string.Format("likes-{0}", Model.Id),
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+            }, new { @class = "btn btn-primary" })
+
+    @Html.ActionLink("Retweet", "Retweet", "Posts", new { post = Model },
+                    new { @class = "btn btn-primary" })
+    @Html.ActionLink("Answer", "Answer", "Posts", new { id = Model.Id },
+                    new { @class = "btn btn-primary" })
+</div>
+<div id="likes-@Model.Id">
+    <strong>@Html.DisplayNameFor(x => Model.FavouritesCount):</strong>
+    @Html.DisplayFor(x => Model.FavouritesCount)
+</div>
+<p>
+    @Model.Content
+    @Model.PostURL
+</p>
+

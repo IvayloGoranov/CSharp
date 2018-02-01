@@ -1,0 +1,11 @@
+10
+FindProductsByProducer Lenovo
+AddProduct laptop;1199;Lenovo
+FindProductsByProducer Lenovo
+AddProduct laptop;999;Lenovo
+FindProductsByProducer Lenovo
+AddProduct laptop;2500;Lenovo
+FindProductsByProducer Lenovo
+AddProduct laptop;999;Lenovo
+AddProduct laptop;999;Toshiba
+FindProductsByProducer Lenovo
